@@ -1,0 +1,86 @@
+*,
+*::before
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.6rem;
+    background: #f89ad1;
+    color: #ff0095;
+}
+
+.logo {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 75rem;
+    height: 10rem;
+    background: #f8d1f8;
+}
+
+.icon-cart img {
+    width: 6rem;
+    border-radius: 50%;
+}
+
+.icon-cart img:hover {
+    transition: 1s;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+main {
+    display: block;
+    margin: 5rem 0;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title img {
+    border-radius: 50%;
+    width: 5rem;
+}
+
+.tranding-slide .tranding-slide-img {
+    width: 37rem;
+    height: 42rem;
+    border-radius: 2rem;
+    object-fit: cover;
+}
+
+.swiper-slide-shadow-left
+.swiper-slide-shadow-right {
+    display: none;
+}
+
+.networks {
+    text-align: center;
+    width: 100%;
+    height: 3rem;
+}
+
+i:hover {
+    cursor: pointer;
+    transition: 1s;
+    color: #fff;
+}

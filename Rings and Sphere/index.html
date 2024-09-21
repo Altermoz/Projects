@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        body{
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            perspective: 600px;
+            overflow: hidden;
+            background-image: radial-gradient(circle, #123, #000 30em);
+        }
+
+        .scene {
+            position: relative;
+        }
+
+        .ball {
+            position: absolute;
+            inset: -8em;
+            background-image: radial-gradient(circle at top, #fff, #000);
+            border-radius: 50%;
+            box-shadow: 0 0 2em #000a;
+        }
+
+        .ring i {
+            position: absolute;
+            border: 1px solid;
+            border-radius: 50%;
+            box-shadow: 0 0 1em inset, 0 0 1em;
+            animation: iMove 24s linear infinite, iScale 24s cubic-bezier(.3642, 0, .6358, 1) infinite;
+        }
+
+        @keyframes iMove {
+            0% { transform: rotateZ(var(--rz) rotateY(var(--ry)) rotateX(var(--rx)) translateZ(50em)); }
+            100% { transform: rotateZ(var(--rz) rotateY(var(--ry)) rotateX(var(--rx)) translateZ(-50em)); }
+        }
+
+        @keyframes iScale {
+            0%, 100% { inset: -1em; opacity: 0; }
+            35%, 65% { inset: -1em; opacity: 1; }
+            50% { inset: -10em; opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <div class="ball"></div>
+        <div class="ring"></div>
+    </div>
+    <script>
+        const ring = document.querySelector('.ring');
+        const duration = 24;
+        const numItems = 32;
+
+        for (let i = 0; i < numItems; i++){
+            const item = document.createElement('i');
+            const hue = i * 98;
+            const delay = (duration / numItems) * i;
+            const rx = Math.random() * 360;
+            const ry = Math.random() * 360;
+            const rz = Math.random() * 360;
+
+            item.style.setProperty('--delay', `${delay}s`);
+            item.style.setProperty('--hue', hue);
+            item.style.setProperty('--rx', `${rx}deg`);
+            item.style.setProperty('--ry', `${ry}deg`);
+            item.style.setProperty('--rz', `${rz}deg`);
+            item.style.borderColor = `hsl(${hue}, 100%, 75%)`;
+            item.style.boxShadow = `0 0 1em hsl(${hue}, 100%, 75%) inset, 0 0 1em hsl(${hue}, 100%, 75%)`
+            item.style.animationDelay = `${delay}s`;
+            
+            ring.appendChild(item);
+        }
+    </script>
+</body>
+</html>

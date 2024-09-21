@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/car.css">
+</head>
+<body>
+    <div class="container">
+        <img src="assets/images/car.svg" class="car">
+        <div class="button">
+            <button onclick="play()">play</button>
+            <button onclick="pause()">pause</button>
+        </div>
+    </div>
+
+    <script>
+        const car = document.querySelector('.car');
+
+        if (car) {
+          function play() {
+            car.style.animationPlayState = 'running';
+          }
+
+          function pause() {
+            car.style.animationPlayState = 'paused';
+          }
+        } else {
+          console.error('Error: .car element not found');
+        }
+    </script>
+</body>
+</html>
